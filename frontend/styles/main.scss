@@ -1,0 +1,35 @@
+// Variables
+$primary: #ff914d;
+$secondary: #3d6aa8;
+$info: #123f7c;
+
+// Font Family
+$font-family-sans-serif: "Poppins";
+
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+// Defining own colours
+$custom-theme-colors: (
+	"orange":#ff914d,
+	"blue":#3d6aa8,
+	"yellow":#ffbc4d,
+	"green":#32a48b,
+	"footergrey":#808080,
+	"notion-default":#505558,
+	"notion-gray":#979a9b,
+	"notion-brown":#937264,
+	"notion-orange":#ffa344,
+	"notion-yellow":#ffdc49,
+	"notion-green":#4dab9a,
+	"notion-blue":#529cca,
+	"notion-purple":#9a6dd7,
+	"notion-pink":#e255a1,
+	"notion-red":#ff7369
+);
+
+// Merging themes together
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+// Bootstrap import
+@import '../node_modules/bootstrap/scss/bootstrap.scss';

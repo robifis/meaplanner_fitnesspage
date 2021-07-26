@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "activity_levels",
+  "info": {
+    "name": "activityLevel",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "activityLevel": {
+      "type": "string"
+    },
+    "activityLevelDescription": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "grwothCollectionLink",
+  "info": {
+    "name": "link"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "link": {
+      "type": "string",
+      "required": true
+    },
+    "linkDescription": {
+      "type": "richtext"
+    }
+  }
+}
