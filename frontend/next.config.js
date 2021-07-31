@@ -5,6 +5,8 @@ module.exports = {
 			'tdeecalculator.net',
 			'static.wixstatic.com',
 			'localhost',
+			'images.ctfassets.net',
+			'lh3.googleusercontent.com',
 		],
 	},
 };

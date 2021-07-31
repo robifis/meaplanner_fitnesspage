@@ -5,7 +5,9 @@ const Heading = (props) => {
 			<Head>
 				<title>{props.title}</title>
 			</Head>
-			<h1 className='h2 py-3'>{props.title}</h1>
+			<div className='px-3'>
+				<h1 className='h2 py-3'>{props.title}</h1>
+			</div>
 		</div>
 	);
 };

@@ -2,7 +2,7 @@ import Link from 'next/link';
 const Navbar = () => {
 	return (
 		<div className='sticky-top'>
-			<nav className='navbar navbar-expand-lg navbar-collapse-md navbar-light bg-white shadow m-0 p-0'>
+			<nav className='navbar navbar-collapse-md navbar-expand-xl navbar-light bg-white shadow m-0 p-0'>
 				<div className='container'>
 					<Link href='/'>
 						<a href className='navbar-brand navbar-nav-scroll text-dark mb-0 h3 text-uppercase'>
@@ -10,7 +10,7 @@ const Navbar = () => {
 						</a>
 					</Link>
 					<button
-						className='navbar-toggler'
+						className='navbar-toggler m-3'
 						type='button'
 						data-bs-toggle='collapse'
 						data-bs-target='#navbarToggler'
@@ -19,63 +19,48 @@ const Navbar = () => {
 						aria-label='Toggle navigation'>
 						<span className='navbar-toggler-icon' />
 					</button>
-					<div className='collapse navbar-collapse text-right' id='navbarToggler'>
-						<ul className='navbar-nav w-100 d-flex justify-content-end'>
+					<div className='w-100 collapse navbar-collapse' id='navbarToggler'>
+						<ul className='navbar nav w-100 justify-content-end'>
 							<li className='nav-item btn rounded-0'>
 								<Link href='/'>
-									<a className='nav-link '>
-										<i class='bi bi-hash' />
-										Home
-									</a>
+									<a className='nav-link '>Home</a>
 								</Link>
 							</li>
-							<li className='nav-item btn rounded-0'>
+							<li className='nav-item rounded-0'>
 								<Link href='/about'>
-									<a className='nav-link '>
-										<i class='bi bi-hash' />
-										About
-									</a>
+									<a className='nav-link'>About</a>
 								</Link>
 							</li>
-							<li className='nav-item btn rounded-0'>
+							<li className='nav-item rounded-0'>
 								<Link href='/macrocalculator'>
-									<a className='nav-link'>
-										<i class='bi bi-hash' />
-										Macro Calculator
-									</a>
+									<a className='nav-link'>Macro Calculator</a>
 								</Link>
 							</li>
-							<li className='nav-item btn rounded-0'>
+							<li className='nav-item rounded-0'>
 								<Link href='/growthcollection'>
-									<a className='nav-link'>
-										<i class='bi bi-hash' />
-										Growth Collection
-									</a>
+									<a className='nav-link'>Growth Collection</a>
 								</Link>
 							</li>
-							<li className='nav-item btn rounded-0'>
+							<li className='nav-item rounded-0'>
 								<Link href='/contact'>
-									<a className='nav-link'>
-										<i class='bi bi-hash' />
-										Contact Us
-									</a>
+									<a className='nav-link'>Contact Us</a>
 								</Link>
 							</li>
-							<li className='nav-item btn rounded-0'>
+							<li className='nav-item rounded-0'>
 								<Link href='/growthCollectionLink'>
-									<a className='nav-link btn btn-primary'>Submit a Link</a>
+									<a className='nav-link'>Submit a Link</a>
 								</Link>
 							</li>
-							{/* <li className='nav-item pe-3'>
-							<Link href=''>
-								<a className='nav-link text-light btn btn-danger'>Login</a>
-							</Link>
-						</li>
-						<li className='nav-item pe-3'>
-							<Link href=''>
-								<a className='nav-link text-light btn btn-success'>SignUp</a>
-							</Link>
-						</li> */}
+							<li className='nav-item pe-3'>
+								<Link href='/api/auth/login'>
+									<a className='nav-link text-light btn btn-danger'>Login</a>
+								</Link>
+							</li>
+							<li className='nav-item pe-3'>
+								<Link href='/api/auth/logout'>
+									<a className='nav-link text-light btn btn-danger'>Logout</a>
+								</Link>
+							</li>
 						</ul>
 					</div>
 				</div>

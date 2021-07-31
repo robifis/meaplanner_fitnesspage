@@ -1,21 +1,14 @@
 import Heading from '../../components/Heading';
-import Image from 'next/image';
-const index = ({ aboutData }) => {
-	console.log(aboutData);
-	console.log(Heading);
+import ReactMarkdown from '../../components/MarkdownText.jsx';
+import { gql } from '@apollo/client';
+import client from '../../apollo-client';
+const index = ({ data }) => {
 	return (
 		<div className='px-3 main'>
-			<Heading title='About' />
-			<div className='row'>
-				<div className='col-lg-12 mb-3'>
-					<img
-						src='http://localhost:1337/uploads/Mansfield_Town_v_Northampton_Town_Sky_Bet_04yznk5o_Xtgl_9312c6129c.jpeg'
-						alt='Bobby Olejnik Playing Footbal'
-						className='img-fluid'
-					/>
-				</div>
-				<div className='col lg-12 mb-5'>
-					<p className='lead'>{aboutData.aboutText}</p>
+			<Heading title={data.about.heading} />
+			<div className='row mb-5'>
+				<div className='col-lg-12 mb-5'>
+					<ReactMarkdown children={data.about.aboutText} />
 				</div>
 			</div>
 		</div>
@@ -24,15 +17,21 @@ const index = ({ aboutData }) => {
 
 export default index;
 
-export const getServerSideProps = async (context) => {
-	try {
-		const raw = await fetch('http://localhost:1337/about');
-		const aboutData = await raw.json();
-		console.log(aboutData);
-		return {
-			props : { aboutData },
-		};
-	} catch (error) {
-		console.error(error);
-	}
+export const getStaticProps = async () => {
+	// Fetching GraphQL data
+	const { data } = await client.query({
+		query : gql`
+			query About {
+				about {
+					id
+					heading
+					aboutText
+				}
+			}
+		`,
+	});
+
+	return {
+		props : { data },
+	};
 };

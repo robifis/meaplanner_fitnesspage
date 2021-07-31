@@ -1,23 +1,30 @@
-import Head from 'next/head';
+import Image from 'next/image';
 import Heading from '../components/Heading';
+import contentfulClient from '../contentful-init';
+import RichTextContent from '../components/RichTextContent';
+import { useUser } from '@auth0/nextjs-auth0';
 
-export default function Home ({ data, about }){
-	console.log(data);
-	console.log(about);
+export default function Home ({ singleEntry }){
+	const { user, error, isLoading } = useUser();
+	console.log(isLoading);
+	console.log(user);
+	console.log(error);
+
+	const { headline, homepageText } = singleEntry.fields;
 	return (
 		<div>
-			<Heading title='Home' />
+			<Heading title={headline} />
+			<RichTextContent data={homepageText} />
 		</div>
 	);
 }
 
 export const getStaticProps = async () => {
-	const data = await fetch('http://localhost:1337/activity-levels');
-	const res = await data.json();
+	// Contentful fetching specific entry
+	const entryID = 'yLSTz4DQZGaEHVYgZ3hY6';
+	const singleEntry = await contentfulClient.getEntry(entryID);
 
-	const rawAbout = await fetch('http://localhost:1337/about');
-	const aboutRes = await rawAbout.json();
 	return {
-		props : { data: res, about: aboutRes }, // will be passed to the page component as props
+		props : { singleEntry }, // will be passed to the page component as props
 	};
 };
